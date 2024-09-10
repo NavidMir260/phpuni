@@ -46,6 +46,8 @@ if (in_array($NCnumber, $NC_data)) {
     
     echo "New national code added";
     }
+
+echo "<br/>";
 var_dump($NC_data);
 //var_dump($_SERVER['REQUEST_METHOD']);
 ?>
