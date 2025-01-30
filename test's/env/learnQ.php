@@ -1,7 +1,9 @@
 
 <?php 
 
-$choice = array('SELECT tel FROM students','tel');
+// $choice = array('SELECT tel FROM students','tel');
+$choice = "";
+
 
 
 ?>
@@ -13,8 +15,8 @@ $choice = array('SELECT tel FROM students','tel');
         <title>△</title>
         <form method="POST">
             <button type="submit" name="choice" value="SELECT * FROM students">All Data</button>
-            <button type="submit" name="choice" value="<?php $choice ?>">tellephone</button>
-            <button type="submit" name="choice" value="SELECT country FROM students">country</button>
+            <button type="submit" name="choice" value="">tellephone</button>
+            <button type="submit" name="choice[]" value="<?php $choice = array('SELECT country FROM students'); ?>">country</button>
             <button type="submit" name="choice" value="SELECT name FROM students">name</button>
         </form>
     </body>
@@ -25,13 +27,10 @@ $choice = array('SELECT tel FROM students','tel');
 
 require ('./SQLconnection.php');
 
-var_dump($choice);
-
-$choice = "";
 
 
 if ($_SERVER["REQUEST_METHOD"] === "POST"){
-    $i = $_POST['choice'];
+    $choice = $_POST['choice'];
 
 }else{
     die();
@@ -57,7 +56,8 @@ echo "<br>";
 //     };
 // }
 
-
+var_dump($choice);
+echo $choice[0];
 
 
 ?>
